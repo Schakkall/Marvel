@@ -1,0 +1,10 @@
+developer.marvel.com
+
+Public key
+f9e95fa16ec3865d019d40ce464b7d82
+
+
+Private key
+5c2338b9d9aedeb093f095d01517ccf576a7fe80
+
+f9e95fa16ec3865d019d40ce464b7d82*5c2338b9d9aedeb093f095d01517ccf576a7fe80

@@ -1,0 +1,13 @@
+#item {
+    background-color: white;
+    border-width: 3px;
+    border-color: black;
+    border-style: solid;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+#item:hover {
+    background-color: blue;
+}
