@@ -1,3 +1,4 @@
+import * as types from './actionTypes';
 export function getAllHereos() {
     return {
         type: 'GET_ALL',

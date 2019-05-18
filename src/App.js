@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
-import './App.css';
-
-import { Provider } from 'react-redux';
+import './App.css'
 
 import store from './store';
-import HeroList from './List/HeroList'
+import HeroList from './components/HeroList'
+
+
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+
 
 class App extends Component {
   render() {

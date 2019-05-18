@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ListItem from './ListItem';
 
 import {bindActionCreators} from 'redux';
-import * as actions from './actions/myActions';
+import * as actions from '../actions/myActions';
 
 import { connect } from 'react-redux'
 
