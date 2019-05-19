@@ -8,14 +8,17 @@ import { connect } from 'react-redux'
 
 class HeroList extends Component {
 
-    componentDidMount() {
+    constructor(props) {
+        super(props);
         this.props.requestApiData();
-        console.log(this.props.data)
+        this.state = { results: [] }
     }
 
-
     render() {
-         return (
+        const { results = [] } = this.props.data;
+        console.log(results)
+
+        return (
             <div>
                 <ListItem title='Herói número 1' ></ListItem>
              
