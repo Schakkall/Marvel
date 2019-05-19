@@ -16,6 +16,7 @@ class HeroList extends Component {
 
     render() {
         const { results = [] } = this.props.data;
+        this.state.results = this.state;
         if (results.length > 0)
             console.log(results);
 
