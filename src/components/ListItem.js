@@ -13,7 +13,6 @@ class ListItem extends Component {
     render() {
          return ( 
              <p id='item'>{this.state.title}</p>
-
         )
     }
 }
