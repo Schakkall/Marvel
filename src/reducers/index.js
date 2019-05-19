@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import requestData from './requestData';
+import data from './data';
 
 export default combineReducers ({
-    requestData
+    data
 });

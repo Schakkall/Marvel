@@ -6,8 +6,6 @@ import HeroList from './components/HeroList'
 
 
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-
 
 class App extends Component {
   render() {

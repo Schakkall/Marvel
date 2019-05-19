@@ -1,3 +1,2 @@
-export const RECV_ERROR = 'RECV_ERROR'
-export const REQ_DATA = 'REQ_DATA'
-export const RECV_DATA = 'RECV_DATA'
+export const REQUEST_DATA = 'REQUEST_DATA'
+export const RECEIVE_DATA = 'RECEIVE_DATA'

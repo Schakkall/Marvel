@@ -8,23 +8,14 @@ import { connect } from 'react-redux'
 
 class HeroList extends Component {
 
-    requestHero = () => {
-        this.props.getHeroInfo(100);
+    componentDidMount() {
+        this.props.requestApiData();
     }
+
 
     render() {
          return (
             <div>
-                <ul>
-                {
-                    this.props.requestData.map(data => (
-                        <li key={data.id}>{data.id}</li>
-                    ))
-                }
-                </ul>
-
-                <button onClick={this.requestHero}></button>
-
                 <ListItem title='Herói número 1' ></ListItem>
              
                 <ListItem title='Herói número 2'></ListItem>
@@ -42,7 +33,7 @@ class HeroList extends Component {
 }
 
 const mapStateToProps = state => ({
-    requestData: state.requestData,
+    data: state.data,//O nome do reducer
 })
 
 const mapDispatchToProps = dispatch => 
