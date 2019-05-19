@@ -1,5 +1,4 @@
 import {createStore, applyMiddleware } from 'redux';
-import reducers from './reducers';
 import createSagaMiddleware from 'redux-saga';
 
 import reducer from './reducers';

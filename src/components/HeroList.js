@@ -10,6 +10,7 @@ class HeroList extends Component {
 
     componentDidMount() {
         this.props.requestApiData();
+        console.log(this.props.data)
     }
 
 
