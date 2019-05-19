@@ -5,3 +5,7 @@ function* fetchHeroes() {}
 function* fetchHeroInfo() {}
 
 function* fetchHeroPic() {}
+
+export default function* rootSaga() {
+    yield all
+}
