@@ -1,4 +1,4 @@
-import * as endpoints from 'endpoints';
+import * as endpoints from './endpoints';
 
 export const fetchData = async () => {
   try {

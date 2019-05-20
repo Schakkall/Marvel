@@ -1,4 +1,4 @@
-import hashIt from 'md5';
+import hashIt from './md5';
 
 export const ALL_HEROES_URI = '';
 export const HERO_INFO_URI = '';
