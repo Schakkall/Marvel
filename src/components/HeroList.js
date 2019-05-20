@@ -4,13 +4,15 @@ import ListItem from './ListItem';
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/myActions';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+import * as endpoints from '../requester/endpoints';
 
 class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.requestApiData();
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0));
         this.state = { results: [] }
     }
 

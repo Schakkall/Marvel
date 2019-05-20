@@ -7,7 +7,7 @@ import { fetchData } from '../requester/requester';
 
 function* getApiData(action) {
   try {
-    const data = yield call(fetchData);
+    const data = yield call(fetchData, action.url);
     yield put(receiveApiData(data));
   } catch (e) {
     console.log(e);

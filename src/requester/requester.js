@@ -1,8 +1,8 @@
 import * as endpoints from './endpoints';
 
-export const fetchData = async () => {
+export const fetchData = async (url) => {
   try {
-    const response = await fetch(endpoints.EXAMPLE_URI);
+    const response = await fetch(url);
     const data = await response.json();
     return data;
   } catch (e) {
