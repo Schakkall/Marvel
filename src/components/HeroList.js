@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import ListItem from './ListItem';
+import ItemPopUp from './ItemPopUp'
+import ReactDOM from 'react-dom';
 
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/myActions';
@@ -19,6 +21,10 @@ class HeroList extends Component {
         }
     }
 
+    itemClick() {
+        ReactDOM.render(<ItemPopUp/>)
+    }
+
     render() {
         const { results = [] } = this.props.data;
         this.state.results = this.state;
@@ -27,17 +33,17 @@ class HeroList extends Component {
 
         return (
             <div>
-                <ListItem key='1' title='Herói número 1' ></ListItem>
+                <ListItem key='1' title='Herói número 1' content="" onClick={this.itemClick} ></ListItem>
              
-                <ListItem key='2' title='Herói número 2'></ListItem>
+                <ListItem key='2' title='Herói número 2' content="" ></ListItem>
              
-                <ListItem key='3' title='Herói número 3'></ListItem>
+                <ListItem key='3' title='Herói número 3' content="" ></ListItem>
              
-                <ListItem key='4' title='Herói número 4'></ListItem>
+                <ListItem key='4' title='Herói número 4' content=""></ListItem>
              
-                <ListItem key='5' title='Herói número 5'></ListItem>
+                <ListItem key='5' title='Herói número 5' content=""></ListItem>
              
-                <ListItem key='6' title='Herói número 6'></ListItem>
+                <ListItem key='6' title='Herói número 6' content=""></ListItem>
             </div>  
         )
     }

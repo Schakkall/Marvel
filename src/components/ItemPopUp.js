@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ItemPopUp from './ItemPopUp.css'
+import ItemPopUpStyle from './ItemPopUp.css'
 
 
 import {bindActionCreators} from 'redux';
