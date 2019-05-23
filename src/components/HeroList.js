@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import HeroListStyle from 'HeroList.css'
 import ListItem from './ListItem';
 import ItemPopUp from './ItemPopUp'
 import ReactDOM from 'react-dom';
@@ -33,17 +34,18 @@ class HeroList extends Component {
 
         return (
             <div>
+                //Apply a map function to the request result
                 <ListItem key='1' title='Herói número 1' content="" onClick={this.itemClick} ></ListItem>
              
-                <ListItem key='2' title='Herói número 2' content="" ></ListItem>
+                <ListItem key='2' title='Herói número 2' content="" onClick={this.itemClick} ></ListItem>
              
-                <ListItem key='3' title='Herói número 3' content="" ></ListItem>
+                <ListItem key='3' title='Herói número 3' content="" onClick={this.itemClick} ></ListItem>
              
-                <ListItem key='4' title='Herói número 4' content=""></ListItem>
+                <ListItem key='4' title='Herói número 4' content="" onClick={this.itemClick}></ListItem>
              
-                <ListItem key='5' title='Herói número 5' content=""></ListItem>
+                <ListItem key='5' title='Herói número 5' content="" onClick={this.itemClick}></ListItem>
              
-                <ListItem key='6' title='Herói número 6' content=""></ListItem>
+                <ListItem key='6' title='Herói número 6' content="" onClick={this.itemClick}></ListItem>
             </div>  
         )
     }
