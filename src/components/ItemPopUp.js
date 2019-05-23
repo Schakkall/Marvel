@@ -15,6 +15,7 @@ class ItemPopUp extends Component {
         super(props);
         this.props.requestApiData(endpoints.HERO_INFO_URI(1));
         this.state = { 
+            key: props.key,
             title: props.title,
             content: props.content
         }

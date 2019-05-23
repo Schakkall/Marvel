@@ -14,7 +14,8 @@ class ListItem extends Component {
     constructor(props) {
         super(props);
         this.props.requestApiData(endpoints.HERO_PIC_URI(1));
-        this.state = { 
+        this.state = {
+            key: props.key,
             title: props.title,
             content: props.content
         }

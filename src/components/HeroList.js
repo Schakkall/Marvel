@@ -27,17 +27,17 @@ class HeroList extends Component {
 
         return (
             <div>
-                <ListItem title='Herói número 1' ></ListItem>
+                <ListItem key='1' title='Herói número 1' ></ListItem>
              
-                <ListItem title='Herói número 2'></ListItem>
+                <ListItem key='2' title='Herói número 2'></ListItem>
              
-                <ListItem title='Herói número 3'></ListItem>
+                <ListItem key='3' title='Herói número 3'></ListItem>
              
-                <ListItem title='Herói número 4'></ListItem>
+                <ListItem key='4' title='Herói número 4'></ListItem>
              
-                <ListItem title='Herói número 5'></ListItem>
+                <ListItem key='5' title='Herói número 5'></ListItem>
              
-                <ListItem title='Herói número 6'></ListItem>
+                <ListItem key='6' title='Herói número 6'></ListItem>
             </div>  
         )
     }
