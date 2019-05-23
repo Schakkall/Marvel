@@ -1,6 +1,15 @@
 import React, {Component} from 'react';
 import ListItemm from './ListItem.css'
 
+
+import {bindActionCreators} from 'redux';
+import * as actions from '../actions/myActions';
+
+import { connect } from 'react-redux';
+
+import * as endpoints from '../requester/endpoints';
+
+
 class ListItem extends Component {
     constructor(props) {
         super(props);
@@ -17,4 +26,11 @@ class ListItem extends Component {
     }
 }
 
-export default ListItem;
+const mapStateToProps = state => ({
+    data: state.data,//O nome do reducer
+})
+
+const mapDispatchToProps = dispatch => 
+    bindActionCreators(actions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);
