@@ -16,8 +16,8 @@ class HeroList extends Component {
         super(props);
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0) );
         this.state = { 
-            title: props.title,
-            content: props.content
+            title: props.data.title,
+            content: props.data
         }
     }
 
@@ -26,10 +26,8 @@ class HeroList extends Component {
     }
 
     render() {
-        const { results = [] } = this.props.data;
-        this.state.results = this.state;
-        if (results.length > 0)
-            console.log(results);
+        if (this.state.content.length > 0)
+            console.log(this.state.content);
 
         return (
             <div>
