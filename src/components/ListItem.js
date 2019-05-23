@@ -23,10 +23,11 @@ class ListItem extends Component {
 
     render() {
          return ( 
-             //Small thumbnail
-             <p id='item'>{this.state.key}</p>
-             <p id='item'>{this.state.title}</p>
-             <p id='item'>{this.state.content}</p>
+            <div>
+                <p>{this.state.key}</p>
+                <p>{this.state.title}</p>
+                <p>{this.state.content}</p>
+            </div>
         )
     }
 }

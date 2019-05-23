@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import HeroListStyle from 'HeroList.css'
 import ListItem from './ListItem';
 import ItemPopUp from './ItemPopUp'
 import ReactDOM from 'react-dom';
