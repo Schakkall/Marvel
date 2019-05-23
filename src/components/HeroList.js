@@ -21,6 +21,8 @@ class HeroList extends Component {
         }
     }
 
+    //Adicionar listener
+
     itemClick() {
         ReactDOM.render(<ItemPopUp/>)
     }
