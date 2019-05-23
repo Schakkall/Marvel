@@ -13,7 +13,7 @@ import * as endpoints from '../requester/endpoints';
 class ItemPopUp extends Component {
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0));
+        this.props.requestApiData(endpoints.HERO_INFO_URI(1));
         this.state = { 
             title: props.title,
             content: props.content
