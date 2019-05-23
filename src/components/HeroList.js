@@ -12,7 +12,7 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.HERO_INFO_URI(1));
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0) );
         this.state = { 
             title: props.title,
             content: props.content
