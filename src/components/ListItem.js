@@ -13,7 +13,8 @@ import * as endpoints from '../requester/endpoints';
 class ListItem extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.props.requestApiData(endpoints.HERO_PIC_URI(1));
+        this.state = { 
             title: props.title,
             content: props.content
         }
