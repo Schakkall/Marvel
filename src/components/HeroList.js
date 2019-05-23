@@ -33,7 +33,7 @@ class HeroList extends Component {
 
         return (
             <div>
-                //Apply a map function to the request result
+                //Apply a map function to result to simplify the sentence
                 <ListItem key='1' title='Herói número 1' content="" onClick={this.itemClick} ></ListItem>
              
                 <ListItem key='2' title='Herói número 2' content="" onClick={this.itemClick} ></ListItem>
