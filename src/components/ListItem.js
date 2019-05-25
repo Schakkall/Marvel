@@ -20,15 +20,13 @@ class ListItem extends Component {
             content: props.content,
             callback: props.callback
         }
+        //this.callback = this.callback.bind(this);
     }
 
+
     render() {
-         this.state.callback();
          return ( 
             <div>
-                <button onClick={this.state.callback}></button>
-                <button onClick={() => console.log('hello')}></button>
-                
                 <p>{this.state.key}</p>
                 <p>{this.state.title}</p>
                 <p>{this.state.content}</p>

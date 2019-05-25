@@ -23,18 +23,20 @@ class HeroList extends Component {
 
     //Adicionar listener
 
-    itemClick() {
-        console.log('clicked');
+    itemClick(id) {
+        console.log('clicked '+id);
     }
 
+    //TOOD: Apply a map function to result to simplify the sentence
     render() {
+        this.itemClick(11);
+
         if (this.state.content.length > 0)
             console.log(this.state.content);
 
         return (
-            <div>
-                //Apply a map function to result to simplify the sentence
-                <ListItem key='1' title='Herói número 1' content='' callback={() => this.itemClick()} ></ListItem>
+            <div key={1}>
+                <button onClick={() => this.itemClick(10)}>CLICK ME</button>
             </div>  
         )
     }
