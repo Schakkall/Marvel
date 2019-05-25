@@ -13,17 +13,22 @@ import * as endpoints from '../requester/endpoints';
 class ListItem extends Component {
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.HERO_PIC_URI(1));
+        //this.props.requestApiData(endpoints.HERO_PIC_URI(1));
         this.state = {
             key: props.key,
             title: props.title,
-            content: props.content
+            content: props.content,
+            callback: props.callback
         }
     }
 
     render() {
+         this.state.callback();
          return ( 
             <div>
+                <button onClick={this.state.callback}></button>
+                <button onClick={() => console.log('hello')}></button>
+                
                 <p>{this.state.key}</p>
                 <p>{this.state.title}</p>
                 <p>{this.state.content}</p>

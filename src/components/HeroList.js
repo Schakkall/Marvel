@@ -14,7 +14,7 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0) );
+        //this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0));
         this.state = { 
             title: props.data.title,
             content: props.data
@@ -24,7 +24,7 @@ class HeroList extends Component {
     //Adicionar listener
 
     itemClick() {
-        ReactDOM.render(<ItemPopUp/>)
+        console.log('clicked');
     }
 
     render() {
@@ -34,17 +34,7 @@ class HeroList extends Component {
         return (
             <div>
                 //Apply a map function to result to simplify the sentence
-                <ListItem key='1' title='Herói número 1' content="" onClick={this.itemClick} ></ListItem>
-             
-                <ListItem key='2' title='Herói número 2' content="" onClick={this.itemClick} ></ListItem>
-             
-                <ListItem key='3' title='Herói número 3' content="" onClick={this.itemClick} ></ListItem>
-             
-                <ListItem key='4' title='Herói número 4' content="" onClick={this.itemClick}></ListItem>
-             
-                <ListItem key='5' title='Herói número 5' content="" onClick={this.itemClick}></ListItem>
-             
-                <ListItem key='6' title='Herói número 6' content="" onClick={this.itemClick}></ListItem>
+                <ListItem key='1' title='Herói número 1' content='' callback={() => this.itemClick()} ></ListItem>
             </div>  
         )
     }
