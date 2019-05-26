@@ -30,11 +30,18 @@ class ListItem extends Component {
     }
 
     render() {
+         const MyImage = ({ alt, src }) => (
+            <LazyLoadImage alt={alt} src={src} />
+         );
+         
          return ( 
             <div id='item'>
                 <p>{this.state.id}</p>
                 <p>{this.state.title}</p>
-                <LazyLoadImage src={this.state.content} />
+                {MyImage({
+                    alt: 'Legenda ' + this.state.title, 
+                    src: this.state.content
+                })}
                 <br/>
                 <button onClick={this.callback}>Mais</button>
             </div>
