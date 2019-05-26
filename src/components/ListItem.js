@@ -15,7 +15,7 @@ class ListItem extends Component {
         super(props);
         //this.props.requestApiData(endpoints.HERO_PIC_URI(1));
         this.state = {
-            key: props.key,
+            id: props.id,
             title: props.title,
             content: props.content,
             callback: props.callback
@@ -30,7 +30,7 @@ class ListItem extends Component {
     render() {
          return ( 
             <div id='item'>
-                <p>{this.state.key}</p>
+                <p>{this.state.id}</p>
                 <p>{this.state.title}</p>
                 <img src={this.state.content} alt={this.state.title} />
                 <br/>

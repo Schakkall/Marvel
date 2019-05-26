@@ -22,6 +22,7 @@ class ItemPopUp extends Component {
     }
 
     render() {
+         //TODO: Use a Pop-UP component
          return ( 
              <p id='item'>PopUp</p>
         )
