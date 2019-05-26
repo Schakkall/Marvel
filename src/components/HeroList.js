@@ -34,6 +34,9 @@ class HeroList extends Component {
     
     itemClick(id) {
         //TODO: Render a Pop-UP for item id
+        //   Defines the container
+        //   Render inside de container
+        //   Make it visible   
         console.log('clicked ' + id);
     }
 
@@ -46,7 +49,7 @@ class HeroList extends Component {
             <div key={1}> 
                 <button onClick={() => this.itemClick(10)}>CLICK ME</button>
                 <ListItem id={100400} title="Hello"  content='http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
-                <ListItem id={100402} title="Hello"  content='https://ftopx.com/large/201411/128901.jpg' callback={this.itemClick}></ListItem>
+                <ListItem id={100401} title="Hello"  content='https://ftopx.com/large/201411/128901.jpg' callback={this.itemClick}></ListItem>
             </div>  
         )
     }
