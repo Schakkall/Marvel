@@ -31,7 +31,7 @@ class ListItem extends Component {
 
     render() {
          const MyImage = ({ alt, src }) => (
-            <LazyLoadImage alt={alt} src={src} />
+            <LazyLoadImage alt={alt} src={src} visibleByDefault={true} width={500} height={300} delayMethod="debounce" delayTime={3000} />
          );
          
          return ( 
