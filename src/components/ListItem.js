@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 
 import * as endpoints from '../requester/endpoints';
 
+import IronImage from './LazyImage';
 
 class ListItem extends Component {
     constructor(props) {
@@ -33,7 +34,7 @@ class ListItem extends Component {
             <div id='item'>
                 <p>{this.state.id}</p>
                 <p>{this.state.title}</p>
-                <img src={this.state.content} alt={this.state.title} />
+                <IronImage srcPreload={this.state.content} srcLoaded={this.state.content} alt={this.state.title} ></IronImage>
                 <br/>
                 <button onClick={this.callback}>Mais</button>
             </div>

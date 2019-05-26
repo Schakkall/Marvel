@@ -6,6 +6,7 @@
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    height: 100px;
 }
 
 #item:hover {
