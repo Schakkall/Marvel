@@ -29,10 +29,10 @@ class ListItem extends Component {
 
     render() {
          return ( 
-            <div>
+            <div id='item'>
                 <p>{this.state.key}</p>
                 <p>{this.state.title}</p>
-                <p>{this.state.content}</p>
+                <img src={this.state.content} alt={this.state.title} />
             </div>
         )
     }
