@@ -33,6 +33,8 @@ class ListItem extends Component {
                 <p>{this.state.key}</p>
                 <p>{this.state.title}</p>
                 <img src={this.state.content} alt={this.state.title} />
+                <br/>
+                <button onClick={this.callback}>Mais</button>
             </div>
         )
     }
