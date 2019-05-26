@@ -22,13 +22,13 @@ class HeroList extends Component {
         }
     }
 
-    //Adicionar listener para o evento onScroll do documento
+    //TODO: Add listener for the onScroll event of the document
 
     itemClick(id) {
         console.log('Clicked ' + id);
     }
 
-    //TOOD: Apply a map function to result to simplify the sentence
+    //TODO: Apply a map function to result to simplify the sentence
     render() {
         if (this.state.content.length > 0)
             console.log(this.state.content);
