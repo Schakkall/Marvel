@@ -22,7 +22,7 @@ class HeroList extends Component {
         }
     }
 
-    //Adicionar listener
+    //Adicionar listener para o evento onScroll do documento
 
     itemClick(id) {
         console.log('Clicked ' + id);
