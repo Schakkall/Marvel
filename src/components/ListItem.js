@@ -20,9 +20,12 @@ class ListItem extends Component {
             content: props.content,
             callback: props.callback
         }
-        //this.callback = this.callback.bind(this);
+        this.callback = this.callback.bind(this);
     }
 
+    callback() {
+        this.state.callback(key);        
+    }
 
     render() {
          return ( 

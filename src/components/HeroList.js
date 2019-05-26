@@ -30,10 +30,11 @@ class HeroList extends Component {
     //      re-render
     
     itemClick(id) {
+        //TODO: Render a Pop-UP for item id
         console.log('Clicked ' + id);
     }
 
-    //TODO: Apply a map function to result to simplify the sentence
+    //TODO: Apply a map function to stack and produce ListItem list
     render() {
         if (this.state.content.length > 0)
             console.log(this.state.content);
