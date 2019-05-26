@@ -18,6 +18,7 @@ class HeroList extends Component {
         this.state = { 
             title: props.data.title,
             content: props.data,
+            offset: 0,
             stack: [],
             put_item: (item) => (this.state.stack.concat(item)),
             pop_item: (item) => (this.state.stack.pop())
