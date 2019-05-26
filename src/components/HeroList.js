@@ -14,29 +14,29 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        //this.props.requestApiData(endpoints.ALL_HEROES_URI(10,0));
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
         this.state = { 
             title: props.data.title,
-            content: props.data
+            content: props.data,
+            stack: []
         }
     }
 
     //Adicionar listener
 
     itemClick(id) {
-        console.log('clicked '+id);
+        console.log('Clicked ' + id);
     }
 
     //TOOD: Apply a map function to result to simplify the sentence
     render() {
-        this.itemClick(11);
-
         if (this.state.content.length > 0)
             console.log(this.state.content);
 
         return (
             <div key={1}>
                 <button onClick={() => this.itemClick(10)}>CLICK ME</button>
+                <ListItem key="" title="" content="" callback="" ></ListItem>
             </div>  
         )
     }
