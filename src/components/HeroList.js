@@ -14,7 +14,7 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
+        //this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
         this.state = { 
             title: props.data.title,
             content: props.data,
@@ -31,7 +31,7 @@ class HeroList extends Component {
     
     itemClick(id) {
         //TODO: Render a Pop-UP for item id
-        console.log('Clicked ' + id);
+        console.log('clicked ' + id);
     }
 
     //TODO: Apply a map function to stack and produce ListItem list

@@ -24,7 +24,8 @@ class ListItem extends Component {
     }
 
     callback() {
-        this.state.callback(key);        
+        console.log(this.state.content)
+        this.state.callback(this.state.id);        
     }
 
     render() {
