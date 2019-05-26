@@ -45,7 +45,7 @@ class HeroList extends Component {
         return (
             <div key={1}>
                 <button onClick={() => this.itemClick(10)}>CLICK ME</button>
-                <ListItem id={100400} title="Hello" content="i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg" callback={this.itemClick}></ListItem>
+                <ListItem id={100400} title="Hello" content='i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
             </div>  
         )
     }
