@@ -49,7 +49,7 @@ class HeroList extends Component {
             <div key={1}> 
                 <button onClick={() => this.itemClick(10)}>CLICK ME</button>
                 <ListItem id={100400} title="Hello"  content='http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
-                <ListItem id={100401} title="Hello"  content='https://ftopx.com/large/201411/128901.jpg' callback={this.itemClick}></ListItem>
+                <ListItem id={100401} title="Hello"  content='https://i1.wp.com/valkirias.com.br/wp-content/uploads/2017/08/valkirias-lana-del-rey-1.png?fit=1080%2C530' callback={this.itemClick}></ListItem>
             </div>  
         )
     }
