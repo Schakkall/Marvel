@@ -23,7 +23,12 @@ class HeroList extends Component {
     }
 
     //TODO: Add listener for the onScroll event of the document
-
+    // if the page is scrolled down then 
+    //      increment the offset of the request
+    //      request
+    //      put in the stack
+    //      re-render
+    
     itemClick(id) {
         console.log('Clicked ' + id);
     }
