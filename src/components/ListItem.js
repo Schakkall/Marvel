@@ -34,7 +34,7 @@ class ListItem extends Component {
             <div id='item'>
                 <p>{this.state.id}</p>
                 <p>{this.state.title}</p>
-                <LazyLoadImage alt={'Legenda: ' + this.state.title} height={600} src={this.state.content} width={100} />
+                <LazyLoadImage src={this.state.content} />
                 <br/>
                 <button onClick={this.callback}>Mais</button>
             </div>
