@@ -9,7 +9,8 @@ function* getApiData(action) {
   try {
     console.log(action.url);
     const data = yield call(fetchData, action.url);
-    yield console.log(data);
+    //yield console.log(data);
+
     yield put(receiveApiData(data));
   } catch (e) {
     console.log(e);

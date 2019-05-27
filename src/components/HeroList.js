@@ -15,7 +15,6 @@ class HeroList extends Component {
     constructor(props) {
         super(props);
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        console.log(this.props.data);
           
         this.state = { 
             title: props.data.title,
@@ -57,23 +56,26 @@ class HeroList extends Component {
 
     //TODO: Apply a map function to stack and produce ListItem list
     render() {
-
-        //if (this.state.content.length > 0)
-        //    console.log(this.state.content);
-
-        return (
-            <div key={1}> 
-                <button onClick={() => this.itemClick(10)}>CLICK ME</button>
-                <ListItem id={100400} title="Hello"  content='http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
-                <ListItem id={100401} title="Hello"  content='https://i1.wp.com/valkirias.com.br/wp-content/uploads/2017/08/valkirias-lana-del-rey-1.png?fit=1080%2C530' callback={this.itemClick}></ListItem>
-            </div>  
-        )
+        console.log();
+        if (this.props.data.data === undefined) {
+            return <div>Loading...</div>
+        } else {
+            return (
+                <div key={1}> 
+                    <button onClick={() => this.itemClick(10)}>CLICK ME</button>
+                    <ListItem id={100400} title="Hello"  content='http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
+                    <ListItem id={100401} title="Hello"  content='https://i1.wp.com/valkirias.com.br/wp-content/uploads/2017/08/valkirias-lana-del-rey-1.png?fit=1080%2C530' callback={this.itemClick}></ListItem>
+                </div>  
+            )
+        }
     }
 }
 
-const mapStateToProps = state => ({
-    data: state.data,//O nome do reducer
-})
+const mapStateToProps = state => {
+    return ({
+        data: state.data,//O nome do reducer
+    })
+}
 
 const mapDispatchToProps = dispatch => 
     bindActionCreators(actions, dispatch);
