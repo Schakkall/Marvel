@@ -38,13 +38,13 @@ class HeroList extends Component {
 
     handleScroll() {
         console.log(window.scrollY);
-    //TODO: Add listener for the onScroll event of the document
-    // if the page is scrolled down then 
-    //      increment the offset of the request
-    //      request
-    //      put in the stack
-    //      increment the height of the page
-    //      render only the new itens
+        //TODO: Add listener for the onScroll event of the document
+        // if the page is scrolled down then 
+        //      increment the offset of the request
+        //      request
+        //      put in the stack
+        //      increment the height of the page
+        //      render only the new itens
     }
     
     itemClick(id) {
