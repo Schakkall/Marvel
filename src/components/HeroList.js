@@ -14,10 +14,10 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        //this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
         this.state = { 
             title: props.data.title,
-            content: props.data,
+            content: props.data.data,
             offset: 0,
             stack: [],
             put_item: (item) => (this.state.stack.concat(item)),
@@ -28,22 +28,22 @@ class HeroList extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        console.log(this.props.data);
     }
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
+    handleScroll() {
+        console.log(window.scrollY);
     //TODO: Add listener for the onScroll event of the document
     // if the page is scrolled down then 
     //      increment the offset of the request
     //      request
     //      put in the stack
-    //      increment the size of the page
+    //      increment the height of the page
     //      render only the new itens
-
-    handleScroll() {
-        console.log(window.scrollY);
     }
     
     itemClick(id) {
@@ -56,8 +56,9 @@ class HeroList extends Component {
 
     //TODO: Apply a map function to stack and produce ListItem list
     render() {
-        if (this.state.content.length > 0)
-            console.log(this.state.content);
+
+        //if (this.state.content.length > 0)
+        //    console.log(this.state.content);
 
         return (
             <div key={1}> 
