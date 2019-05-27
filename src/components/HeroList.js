@@ -23,6 +23,15 @@ class HeroList extends Component {
             put_item: (item) => (this.state.stack.concat(item)),
             pop_item: (item) => (this.state.stack.pop())
         }
+        this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 
     //TODO: Add listener for the onScroll event of the document
@@ -32,6 +41,10 @@ class HeroList extends Component {
     //      put in the stack
     //      increment the size of the page
     //      render only the new itens
+
+    handleScroll() {
+        console.log(window.scrollY);
+    }
     
     itemClick(id) {
         //TODO: Render a Pop-UP for item id
