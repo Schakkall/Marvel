@@ -15,6 +15,8 @@ class HeroList extends Component {
     constructor(props) {
         super(props);
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
+        console.log(this.props.data);
+
         this.state = { 
             title: props.data.title,
             content: props.data.data,
@@ -28,7 +30,6 @@ class HeroList extends Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
-        console.log(this.props.data);
     }
 
     componentWillUnmount() {
