@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ListItemStyle from './ListItem.css'
+import './ListItem.css'
 
 
 import {bindActionCreators} from 'redux';
@@ -7,7 +7,7 @@ import * as actions from '../actions/myActions';
 
 import { connect } from 'react-redux';
 
-import * as endpoints from '../requester/endpoints';
+//import * as endpoints from '../requester/endpoints';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 

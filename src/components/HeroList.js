@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
+import './HeroList.css';
 import ListItem from './ListItem';
-import ItemPopUp from './ItemPopUp'
-import ReactDOM from 'react-dom';
+//import ItemPopUp from './ItemPopUp'
 
 import {bindActionCreators} from 'redux';
 import * as actions from '../actions/myActions';
@@ -26,7 +26,7 @@ class HeroList extends Component {
         }
 
         this.handleScroll = this.handleScroll.bind(this);
-        this.setState = this.setState.bind(this);
+        this.loadNewState = this.loadNewState.bind(this);
     }
 
     componentDidMount() {
@@ -37,17 +37,16 @@ class HeroList extends Component {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
-    setState(props) {
-        this.state  = {
+    loadNewState(props) {
+        this.state = {
             title: props.data.title,
             content: props.data.data
-        }
+        };
         //TODO: Add the new data to stack
     }
 
     handleScroll() {
         console.log(window.scrollY);
-        //TODO: Add listener for the onScroll event of the document
         // if the page is scrolled down then 
         //      increment the offset of the request
         //      request
@@ -68,7 +67,7 @@ class HeroList extends Component {
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {
-            this.setState(this.props);
+            this.loadNewState(this.props);
             //TODO: Apply a map function to stack and produce ListItem list
             return (
                 <div key={1}> 

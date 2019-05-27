@@ -1,5 +1,3 @@
-import * as endpoints from './endpoints';
-
 export const fetchData = async (url) => {
   try {
     const response = await fetch(url);

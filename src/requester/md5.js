@@ -12,5 +12,5 @@ export function hashIt(ts = new Date().getTime(), privateKey = PRIVATE_KEY, publ
 
 export function authStr() {
     const ts = new Date().getTime();
-    return ("ts="+ts+"&"+"apikey="+PUBLIC_KEY+"&"+"hash="+hashIt(ts))
+    return ("ts=" + ts + "&" + "apikey=" + PUBLIC_KEY + "&" + "hash=" + hashIt(ts));
 }
