@@ -24,7 +24,9 @@ class HeroList extends Component {
             put_item: (item) => (this.state.stack.concat(item)),
             pop_item: (item) => (this.state.stack.pop())
         }
+
         this.handleScroll = this.handleScroll.bind(this);
+        this.setState = this.setState.bind(this);
     }
 
     componentDidMount() {
@@ -33,6 +35,14 @@ class HeroList extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    setState(props) {
+        this.state  = {
+            title: props.data.title,
+            content: props.data.data
+        }
+        //TODO: Add the new data to stack
     }
 
     handleScroll() {
@@ -54,12 +64,13 @@ class HeroList extends Component {
         console.log('clicked ' + id);
     }
 
-    //TODO: Apply a map function to stack and produce ListItem list
     render() {
         console.log();
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {
+            this.setState(this.props);
+            //TODO: Apply a map function to stack and produce ListItem list
             return (
                 <div key={1}> 
                     <button onClick={() => this.itemClick(10)}>CLICK ME</button>
