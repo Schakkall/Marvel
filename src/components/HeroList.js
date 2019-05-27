@@ -53,7 +53,7 @@ class HeroList extends Component {
         //      request
         //      put in the stack
         //      increment the height of the page
-        //      render only the new itens
+        //      re-render
     }
     
     itemClick(id) {
@@ -65,7 +65,6 @@ class HeroList extends Component {
     }
 
     render() {
-        console.log();
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {
