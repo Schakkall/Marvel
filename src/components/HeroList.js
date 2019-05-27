@@ -16,7 +16,7 @@ class HeroList extends Component {
         super(props);
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
         console.log(this.props.data);
-
+          
         this.state = { 
             title: props.data.title,
             content: props.data.data,
