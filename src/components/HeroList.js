@@ -21,8 +21,8 @@ class HeroList extends Component {
             content: props.data.data,
             offset: 0,
             stack: [],
-            put_item: (item) => (this.state.stack.concat(item)),
-            pop_item: (item) => (this.state.stack.pop())
+            put_item: (item) => (this.state.stack.push(item)),
+            pop_item: () => (this.state.stack.pop())
         }
 
         this.handleScroll = this.handleScroll.bind(this);
