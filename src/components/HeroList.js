@@ -20,7 +20,6 @@ class HeroList extends Component {
             title: props.data.title,
             content: props.data.data,
 
-            scrollBarHeight: 0,
             offset: 0,
 
             stack: ['a'],
@@ -31,7 +30,6 @@ class HeroList extends Component {
         this.handleScroll = this.handleScroll.bind(this);
         this.loadNewState = this.loadNewState.bind(this);
         this.mountItem = this.mountItem.bind(this);
-        this.updateScrollBarSize = this.updateScrollBarSize.bind(this);
     }
 
     componentDidMount() {
@@ -50,22 +48,15 @@ class HeroList extends Component {
         //TODO: Add the new data to stack
     }
 
-    updateScrollBarSize(measurements) {
-        this.setState({
-            scrollBarHeight: measurements
-        })        
-    }
-
-    handleScroll() {
+    handleScroll() { 
         if (window.pageYOffset + window.innerHeight >= document.body.scrollHeight) {
             console.log('The page is scrolled down')
+            this.state.offset += 10;
+            this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
+            this.loadNewState(this.props);
+            //      increment the height of the page
+            //      re-render
         }
-        // if the page is scrolled down then 
-        //      increment the offset of the request
-        //      request
-        //      put in the stack
-        //      increment the height of the page
-        //      re-render
     }
     
     itemClick(id) {
