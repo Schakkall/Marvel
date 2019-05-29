@@ -19,7 +19,10 @@ class HeroList extends Component {
         this.state = { 
             title: props.data.title,
             content: props.data.data,
+
+            scrollBarHeight: 0,
             offset: 0,
+
             stack: [1, 2],
             put_item: (item) => (this.state.stack.push(item)),
             pop_item: () => (this.state.stack.pop())
@@ -28,6 +31,7 @@ class HeroList extends Component {
         this.handleScroll = this.handleScroll.bind(this);
         this.loadNewState = this.loadNewState.bind(this);
         this.mountItem = this.mountItem.bind(this);
+        this.updateScrollBarSize = this.updateScrollBarSize.bind(this);
     }
 
     componentDidMount() {
@@ -46,9 +50,15 @@ class HeroList extends Component {
         //TODO: Add the new data to stack
     }
 
+    updateScrollBarSize(measurements) {
+        this.setState({
+            scrollBarHeight: measurements
+        })        
+    }
+
     handleScroll() {
         console.log(window.scrollY);
-        console.log('hi');//TODO: Know how to get the scrollbar size
+        console.log(this.state.scrollBarHeight);//TODO: Know how to get the scrollbar size
         console.log(window.screen.height);
         //if (window.screen.height)
         // if the page is scrolled down then 
@@ -80,6 +90,7 @@ class HeroList extends Component {
         } else {            
             return (
                 <div key={1}>
+                    <ScrollbarSize onLoad={this.updateScrollBarSize} onChange={this.updateScrollBarSize} />
                     {this.state.stack.map((item) => this.mountItem(index++, item))}
                 </div>  
             )
