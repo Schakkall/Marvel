@@ -10,7 +10,6 @@ function* getApiData(action) {
     const data = yield call(fetchData, action.url);
     //It's possible yield a delay
     //yield delay(1500);
-    yield console.log(data.data);
     yield put(receiveApiData(data));
   } catch (e) {
     console.log(e);
