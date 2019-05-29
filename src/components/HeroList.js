@@ -22,7 +22,7 @@ class HeroList extends Component {
 
             offset: 0,
 
-            stack: ['a'],
+            stack: [],
             put_item: (item) => (this.state.stack.push(item)),
             pop_item: () => (this.state.stack.pop())
         }
@@ -55,7 +55,7 @@ class HeroList extends Component {
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             this.loadNewState(this.props);
             //      increment the height of the page
-            //      re-render
+            this.render();
         }
     }
     
