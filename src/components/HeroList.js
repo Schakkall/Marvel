@@ -20,7 +20,7 @@ class HeroList extends Component {
             title: props.data.title,
             content: props.data.data,
             offset: 0,
-            stack: [],
+            stack: [1, 2],
             put_item: (item) => (this.state.stack.push(item)),
             pop_item: () => (this.state.stack.pop())
         }
@@ -39,10 +39,10 @@ class HeroList extends Component {
     }
 
     loadNewState(props) {
-        this.state = {
+        this.setState({
             title: props.data.title,
             content: props.data.data
-        };
+        });
         //TODO: Add the new data to stack
     }
 
@@ -64,18 +64,20 @@ class HeroList extends Component {
         console.log('clicked ' + id);
     }
 
-    mountItem(id, title, content) {
-        return (<ListItem id={id} title={title}  content={content} callback={this.itemClick}></ListItem>)
+    mountItem(key, item) {
+        console.log(item);
+        return (<div key={key}>{item}</div>)//(<ListItem id={id} title={title}  content={content} callback={this.itemClick}></ListItem>)
     }
 
     render() {
+        var index = 1;
+
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
-        } else {
-            this.loadNewState(this.props);
+        } else {            
             return (
-                <div key={1}> 
-                    {this.stack.map(mountItem)}
+                <div key={1}>
+                    {this.state.stack.map((item) => this.mountItem(index++, item))}
                 </div>  
             )
         }
