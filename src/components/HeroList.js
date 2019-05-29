@@ -27,6 +27,7 @@ class HeroList extends Component {
 
         this.handleScroll = this.handleScroll.bind(this);
         this.loadNewState = this.loadNewState.bind(this);
+        this.mountItem = this.mountItem.bind(this);
     }
 
     componentDidMount() {
@@ -63,17 +64,18 @@ class HeroList extends Component {
         console.log('clicked ' + id);
     }
 
+    mountItem(id, title, content) {
+        return (<ListItem id={id} title={title}  content={content} callback={this.itemClick}></ListItem>)
+    }
+
     render() {
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {
             this.loadNewState(this.props);
-            //TODO: Apply a map function to stack and produce ListItem list
             return (
                 <div key={1}> 
-                    <button onClick={() => this.itemClick(10)}>CLICK ME</button>
-                    <ListItem id={100400} title="Hello"  content='http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784.jpg' callback={this.itemClick}></ListItem>
-                    <ListItem id={100401} title="Hello"  content='https://i1.wp.com/valkirias.com.br/wp-content/uploads/2017/08/valkirias-lana-del-rey-1.png?fit=1080%2C530' callback={this.itemClick}></ListItem>
+                    {this.stack.map(mountItem)}
                 </div>  
             )
         }
