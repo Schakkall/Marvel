@@ -48,7 +48,9 @@ class HeroList extends Component {
 
     handleScroll() {
         console.log(window.scrollY);
+        console.log('hi');//TODO: Know how to get the scrollbar size
         console.log(window.screen.height);
+        //if (window.screen.height)
         // if the page is scrolled down then 
         //      increment the offset of the request
         //      request
