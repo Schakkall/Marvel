@@ -23,7 +23,7 @@ class HeroList extends Component {
             scrollBarHeight: 0,
             offset: 0,
 
-            stack: [1, 2],
+            stack: ['a'],
             put_item: (item) => (this.state.stack.push(item)),
             pop_item: () => (this.state.stack.pop())
         }
@@ -57,10 +57,9 @@ class HeroList extends Component {
     }
 
     handleScroll() {
-        console.log(window.scrollY);
-        console.log(this.state.scrollBarHeight);//TODO: Know how to get the scrollbar size
-        console.log(window.screen.height);
-        //if (window.screen.height)
+        if (window.pageYOffset + window.innerHeight >= document.body.scrollHeight) {
+            console.log('The page is scrolled down')
+        }
         // if the page is scrolled down then 
         //      increment the offset of the request
         //      request
@@ -90,7 +89,6 @@ class HeroList extends Component {
         } else {            
             return (
                 <div key={1}>
-                    <ScrollbarSize onLoad={this.updateScrollBarSize} onChange={this.updateScrollBarSize} />
                     {this.state.stack.map((item) => this.mountItem(index++, item))}
                 </div>  
             )
