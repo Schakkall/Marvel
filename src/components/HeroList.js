@@ -17,10 +17,10 @@ class HeroList extends Component {
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
           
         this.state = { 
-            title: props.data.title,
-            content: props.data.data,
+            title: undefined,
+            content: undefined,
 
-            offset: 0,
+            offset: 10,
 
             stack: [],
             put_item: (item) => (this.state.stack.push(item)),
@@ -41,6 +41,7 @@ class HeroList extends Component {
     }
 
     loadNewState(props) {
+        console.log(props.data.data);
         this.setState({
             title: props.data.title,
             content: props.data.data
@@ -54,7 +55,7 @@ class HeroList extends Component {
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             this.loadNewState(this.props);
-            //      increment the height of the page
+            //Increment the height of the page
             this.render();
         }
     }
