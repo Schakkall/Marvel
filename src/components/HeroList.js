@@ -20,7 +20,7 @@ class HeroList extends Component {
             title: undefined,
             content: undefined,
 
-            offset: 10,
+            offset: 0,
 
             stack: [],
             put_item: (item) => (this.state.stack.push(item)),
@@ -41,7 +41,7 @@ class HeroList extends Component {
     }
 
     loadNewState(props) {
-        console.log(props.data.data);
+        //console.log(props.data.data);
         this.setState({
             title: props.data.title,
             content: props.data.data
@@ -54,7 +54,7 @@ class HeroList extends Component {
             console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
-            this.loadNewState(this.props);
+            setTimeout(() => this.loadNewState(this.props), 1500);
             //Increment the height of the page
             this.render();
         }
