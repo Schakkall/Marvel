@@ -1,4 +1,5 @@
 import { call, put, delay, takeEvery} from 'redux-saga/effects';
+import {END} from 'redux-saga';
 
 import { REQUEST_DATA } from '../actions/actionTypes';
 import { receiveApiData } from '../actions/myActions';
@@ -9,7 +10,8 @@ function* getApiData(action) {
   try {
     const data = yield call(fetchData, action.url);
     //It's possible yield a delay
-    //yield delay(1500);
+    // yield put(waiting)
+    // Use take for wait for new action
     yield put(receiveApiData(data));
   } catch (e) {
     console.log(e);
