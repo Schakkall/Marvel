@@ -41,11 +41,13 @@ class HeroList extends Component {
     }
 
     loadNewState(props) {
-        console.log(props.data.data);
-        this.setState({
-            title: props.data.title,
-            content: props.data.data
-        });
+        if (props.data.data.code === 200) {
+            console.log(props.data.data.data);
+            this.setState({
+                title: props.data.title,
+                content: props.data.data
+            });
+        }
         //TODO: Add the new data to stack
     }
 
@@ -54,8 +56,8 @@ class HeroList extends Component {
             console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
-            this.loadNewState(this.props);
-            //setTimeout(() => this.loadNewState(this.props), 5000);
+            //this.loadNewState(this.props);
+            setTimeout(() => this.loadNewState(this.props), 1200);
             //Increment the height of the page
             this.render();
         }
@@ -75,7 +77,7 @@ class HeroList extends Component {
     }
 
     render() {
-        var index = 1;
+        let index = 1;
 
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
