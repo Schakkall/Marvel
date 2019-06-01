@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 import * as endpoints from '../requester/endpoints';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { ItemPopUp } from './ItemPopUp'
 
 class ListItem extends Component {
     constructor(props) {
@@ -19,14 +20,23 @@ class ListItem extends Component {
             id: props.id,
             title: props.title,
             content: props.content,
-            callback: props.callback
+            callback: props.callback,
+            showPopup: false
         }
         this.callback = this.callback.bind(this);
+        this.togglePopup = this.togglePopup.bind(this);
     }
 
     callback() {
+        this.togglePopup();
         this.state.callback(this.state.id);        
     }
+
+    togglePopup() {
+        this.state.showPopup = !this.state.showPopup;
+        this.forceUpdate();
+    }
+
 
     render() {
          const MyImage = ({ alt, src }) => (
@@ -44,6 +54,15 @@ class ListItem extends Component {
                     <p>{this.state.id}</p>
                     <p>{this.state.title}</p>
                     <button onClick={this.callback}>Mais</button>
+                    {this.state.showPopup ? 
+                        <ItemPopUp
+                            title={this.state.title}
+                            content={this.state.title}
+                            closePopup={this.togglePopup}
+                        />
+                    : 
+                        <div/>
+                    }
                 </div>
             </div>
         )

@@ -9,8 +9,7 @@ import { connect } from 'react-redux';
 
 //import * as endpoints from '../requester/endpoints';
 
-
-class ItemPopUp extends Component {
+export class ItemPopUp extends Component {
     constructor(props) {
         super(props);
         //this.props.requestApiData(endpoints.HERO_INFO_URI(1));
@@ -22,9 +21,14 @@ class ItemPopUp extends Component {
     }
 
     render() {
-         //TODO: Use a Pop-UP component
          return ( 
-             <p id='item'>PopUp</p>
+            <div className='popup'>
+                <div className='popup_inner'>
+                    <h1>{this.state.title}</h1>
+                    <p>{this.state.content}</p>
+                    <button onClick={this.props.closePopup}>Voltar</button>
+                </div>
+             </div>
         )
     }
 }

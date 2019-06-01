@@ -5,8 +5,6 @@ import { receiveApiData } from '../actions/myActions';
 
 import { fetchData, getData } from '../requester/requester';
 
-const axios = require('axios');
-
 function* getApiData(action) {
   try {
     const data = yield call(getData, action.url);

@@ -77,7 +77,7 @@ class HeroList extends Component {
         //   Defines the container
         //   Render inside de container
         //   Make it visible
-        alert('Clicked ' + id);
+        //alert('Clicked ' + id);
         console.log('clicked ' + id);
     }
 
