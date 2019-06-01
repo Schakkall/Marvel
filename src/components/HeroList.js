@@ -65,7 +65,6 @@ class HeroList extends Component {
             //console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
-            //this.loadNewState(this.props);
             setTimeout(() => this.loadNewState(this.props), 1200);
             //Increment the height of the page
             this.forceUpdate();
@@ -73,11 +72,7 @@ class HeroList extends Component {
     }
     
     itemClick(id) {
-        //TODO: Render a Pop-UP for item id
-        //   Defines the container
-        //   Render inside de container
-        //   Make it visible
-        //alert('Clicked ' + id);
+        //The child son id is being showed!
         console.log('clicked ' + id);
     }
 
