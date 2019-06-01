@@ -60,7 +60,6 @@ class HeroList extends Component {
         } else {
             console.log('Falha na requisição!')
         }
-        //TODO: Add the new data to stack
     }
 
     handleScroll() { 
