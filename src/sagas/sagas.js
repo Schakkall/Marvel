@@ -3,14 +3,9 @@ import { call, put, delay, takeEvery, takeLatest} from 'redux-saga/effects';
 import { REQUEST_DATA } from '../actions/actionTypes';
 import { receiveApiData } from '../actions/myActions';
 
-import { fetchData } from '../requester/requester';
+import { fetchData, getData } from '../requester/requester';
 
 const axios = require('axios');
-
-async function getData(url) {
-  let result = await axios.get(url);
-  return result;
-}
 
 function* getApiData(action) {
   try {

@@ -44,17 +44,15 @@ class HeroList extends Component {
 
     
     handleOnLoad(props) {
-        //console.log('on load')
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        setTimeout(() => this.loadNewState(this.props), 2000);//OnPageLoad
+        setTimeout(() => this.loadNewState(this.props), 1200);//OnPageLoad
         this.forceUpdate();
     }
 
     loadNewState(props) {
         if (props.data.status === 200) {
-            //console.log(props.data.data.data.results);
             props.data.data.data.results.forEach(function(element) {
-                this.state.stack.push(element.id);
+                this.state.stack.push(element);
             }, this);
             this.forceUpdate();
         } else {
@@ -68,14 +66,13 @@ class HeroList extends Component {
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             //this.loadNewState(this.props);
-            setTimeout(() => this.loadNewState(this.props), 2000);
+            setTimeout(() => this.loadNewState(this.props), 1200);
             //Increment the height of the page
             this.forceUpdate();
         }
     }
     
     itemClick(id) {
-
         //TODO: Render a Pop-UP for item id
         //   Defines the container
         //   Render inside de container
@@ -84,15 +81,11 @@ class HeroList extends Component {
     }
 
     mountItem(key, item) {
-        //console.log(item);
-        return (<div key={key}>{item}</div>)//(<ListItem id={id} title={title}  content={content} callback={this.itemClick}></ListItem>)
+        return (<ListItem key={key} id={item.id} title={item.name} content={item.thumbnail.path +'.'+ item.thumbnail.extension} callback={this.itemClick}></ListItem>)
     }
 
     render() {
-        //console.log(this.state.stack.length);
         let index = 1;
-        //this.state.stack.map((item) => console.log(item));
-        //console.log(this.state.stack);
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {            
