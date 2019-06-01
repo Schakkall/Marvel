@@ -46,7 +46,7 @@ class HeroList extends Component {
     handleOnLoad(props) {
         //console.log('on load')
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        setTimeout(() => this.loadNewState(this.props), 5000);//OnPageLoad
+        setTimeout(() => this.loadNewState(this.props), 2000);//OnPageLoad
         this.forceUpdate();
     }
 
@@ -69,7 +69,7 @@ class HeroList extends Component {
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             //this.loadNewState(this.props);
-            setTimeout(() => this.loadNewState(this.props), 3000);
+            setTimeout(() => this.loadNewState(this.props), 2000);
             //Increment the height of the page
             this.forceUpdate();
         }
@@ -90,7 +90,7 @@ class HeroList extends Component {
     }
 
     render() {
-        console.log(this.state.stack.length);
+        //console.log(this.state.stack.length);
         let index = 1;
         //this.state.stack.map((item) => console.log(item));
         //console.log(this.state.stack);
