@@ -26,53 +26,57 @@ class HeroList extends Component {
             pop_item: () => (this.state.stack.pop())
         }
 
+        this.handleOnLoad = this.handleOnLoad.bind(this);
         this.handleScroll = this.handleScroll.bind(this);
         this.loadNewState = this.loadNewState.bind(this);
         this.mountItem = this.mountItem.bind(this);
-
-        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        setTimeout(() => this.loadNewState(this.props), 5000);//OnPageLoad
-        
-        //this.render();
-
     }
 
     componentDidMount() {
-
+        window.addEventListener('load', this.handleOnLoad);
         window.addEventListener('scroll', this.handleScroll);
     }
 
     componentWillUnmount() {
+        window.removeEventListener('load', this.handleOnLoad);
         window.removeEventListener('scroll', this.handleScroll);
     }
 
+    
+    handleOnLoad(props) {
+        //console.log('on load')
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
+        setTimeout(() => this.loadNewState(this.props), 5000);//OnPageLoad
+        this.forceUpdate();
+    }
+
     loadNewState(props) {
-        //console.log(props.data);
         if (props.data.status === 200) {
-            //console.log('entrou')
+            //console.log(props.data.data.data.results);
             props.data.data.data.results.forEach(function(element) {
                 this.state.stack.push(element.id);
             }, this);
-
+            this.forceUpdate();
         } else {
-            console.log('Estado invalido')
+            console.log('Falha na requisição!')
         }
         //TODO: Add the new data to stack
     }
 
     handleScroll() { 
         if (window.pageYOffset + window.innerHeight === document.body.scrollHeight) {
-            console.log('The page is scrolled down')
+            //console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             //this.loadNewState(this.props);
             setTimeout(() => this.loadNewState(this.props), 3000);
             //Increment the height of the page
-            this.render();
+            this.forceUpdate();
         }
     }
     
     itemClick(id) {
+
         //TODO: Render a Pop-UP for item id
         //   Defines the container
         //   Render inside de container
@@ -86,8 +90,9 @@ class HeroList extends Component {
     }
 
     render() {
+        console.log(this.state.stack.length);
         let index = 1;
-        this.state.stack.map((item) => console.log(item));
+        //this.state.stack.map((item) => console.log(item));
         //console.log(this.state.stack);
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
