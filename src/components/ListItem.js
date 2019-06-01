@@ -25,7 +25,6 @@ class ListItem extends Component {
     }
 
     callback() {
-        console.log(this.state.content)
         this.state.callback(this.state.id);        
     }
 
@@ -35,15 +34,17 @@ class ListItem extends Component {
          );
          
          return ( 
-            <div id='item'>
-                <p>{this.state.id}</p>
-                <p>{this.state.title}</p>
+            <div id='item' className='card'>
                 {MyImage({
                     alt: 'Legenda ' + this.state.title, 
                     src: this.state.content
                 })}
                 <br/>
-                <button onClick={this.callback}>Mais</button>
+                <div className='container'>
+                    <p>{this.state.id}</p>
+                    <p>{this.state.title}</p>
+                    <button onClick={this.callback}>Mais</button>
+                </div>
             </div>
         )
     }

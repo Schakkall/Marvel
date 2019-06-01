@@ -76,7 +76,8 @@ class HeroList extends Component {
         //TODO: Render a Pop-UP for item id
         //   Defines the container
         //   Render inside de container
-        //   Make it visible   
+        //   Make it visible
+        alert('Clicked ' + id);
         console.log('clicked ' + id);
     }
 

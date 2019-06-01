@@ -33,13 +33,9 @@
 }
 
 #main {
-    background-color: white;
-    border-width: 3px;
-    border-color: black;
-    border-style: solid;
-    color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
+    margin: 0 auto;
+    width: 50%; 
     width: 600px;
     height: 1000px;
 }
