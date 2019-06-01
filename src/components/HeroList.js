@@ -14,7 +14,6 @@ class HeroList extends Component {
 
     constructor(props) {
         super(props);
-        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
           
         this.state = { 
             title: undefined,
@@ -30,9 +29,16 @@ class HeroList extends Component {
         this.handleScroll = this.handleScroll.bind(this);
         this.loadNewState = this.loadNewState.bind(this);
         this.mountItem = this.mountItem.bind(this);
+
+        this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
+        setTimeout(() => this.loadNewState(this.props), 5000);//OnPageLoad
+        
+        //this.render();
+
     }
 
     componentDidMount() {
+
         window.addEventListener('scroll', this.handleScroll);
     }
 
@@ -41,23 +47,26 @@ class HeroList extends Component {
     }
 
     loadNewState(props) {
-        if (props.data.data.code === 200) {
-            console.log(props.data.data.data);
-            this.setState({
-                title: props.data.title,
-                content: props.data.data
-            });
+        //console.log(props.data);
+        if (props.data.status === 200) {
+            //console.log('entrou')
+            props.data.data.data.results.forEach(function(element) {
+                this.state.stack.push(element.id);
+            }, this);
+
+        } else {
+            console.log('Estado invalido')
         }
         //TODO: Add the new data to stack
     }
 
     handleScroll() { 
-        if (window.pageYOffset + window.innerHeight >= document.body.scrollHeight) {
+        if (window.pageYOffset + window.innerHeight === document.body.scrollHeight) {
             console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             //this.loadNewState(this.props);
-            setTimeout(() => this.loadNewState(this.props), 1200);
+            setTimeout(() => this.loadNewState(this.props), 3000);
             //Increment the height of the page
             this.render();
         }
@@ -72,13 +81,14 @@ class HeroList extends Component {
     }
 
     mountItem(key, item) {
-        console.log(item);
+        //console.log(item);
         return (<div key={key}>{item}</div>)//(<ListItem id={id} title={title}  content={content} callback={this.itemClick}></ListItem>)
     }
 
     render() {
         let index = 1;
-
+        this.state.stack.map((item) => console.log(item));
+        //console.log(this.state.stack);
         if (this.props.data.data === undefined) {
             return <div>Loading...</div>
         } else {            
