@@ -72,7 +72,7 @@ class HeroList extends Component {
     }
     
     itemClick(id) {
-        //The child son id is being showed!
+        //The child id is being showed!
         console.log('clicked ' + id);
     }
 
