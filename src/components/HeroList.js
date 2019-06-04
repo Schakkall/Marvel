@@ -45,7 +45,7 @@ class HeroList extends Component {
     
     handleOnLoad(props) {
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        setTimeout(() => this.loadNewState(this.props), 1200);//OnPageLoad
+        setTimeout(() => this.loadNewState(this.props), 3000);//OnPageLoad
         this.forceUpdate();
     }
 
@@ -65,7 +65,7 @@ class HeroList extends Component {
             //console.log('The page is scrolled down')
             this.state.offset += 10;
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
-            setTimeout(() => this.loadNewState(this.props), 1200);
+            setTimeout(() => this.loadNewState(this.props), 3000);
             //Increment the height of the page
             this.forceUpdate();
         }
