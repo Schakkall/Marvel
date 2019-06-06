@@ -53,6 +53,7 @@ class ListItem extends Component {
                 <div className='container'>
                     <p>{this.state.id}</p>
                     <p>{this.state.title}</p>
+                    <br/>
                     <button onClick={this.callback}>Mais</button>
                     {this.state.showPopup ? 
                         <ItemPopUp

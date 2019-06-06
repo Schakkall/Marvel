@@ -14,8 +14,10 @@ export default class Loading extends Component {
     //Just show a loading icon during a certain amount of time
     render() {
         return (
-        <div className='container loader'>
-            <img className='box' src={Icon}></img>
+        <div id='loader'>
+            <div className='container'>
+                <img className='box' src={Icon}></img>
+            </div>
         </div>
         )
     }
