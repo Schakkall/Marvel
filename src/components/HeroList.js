@@ -10,6 +10,9 @@ import { connect } from 'react-redux';
 
 import * as endpoints from '../requester/endpoints';
 
+
+import Loading from './Loading';
+
 class HeroList extends Component {
 
     constructor(props) {
@@ -83,7 +86,7 @@ class HeroList extends Component {
     render() {
         let index = 1;
         if (this.props.data.data === undefined) {
-            return <div>Loading...</div>
+            return (<Loading></Loading>)
         } else {            
             return (
                 <div key={1}>
