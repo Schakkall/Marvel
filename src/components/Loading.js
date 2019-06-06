@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './HeroList.css';
+import './Loading.css';
 import ListItem from './ListItem';
+import Icon from './loader.gif';
 //import ItemPopUp from './ItemPopUp'
 
 //import {bindActionCreators} from 'redux';
@@ -9,6 +10,13 @@ import ListItem from './ListItem';
 //import { connect } from 'react-redux';
 
 
-class Loading extends Component {
+export default class Loading extends Component {
     //Just show a loading icon during a certain amount of time
+    render() {
+        return (
+        <div className='container loader'>
+            <img className='box' src={Icon}></img>
+        </div>
+        )
+    }
 }
