@@ -3,4 +3,4 @@ This is the Marvel InfiniteScroll TODO list
 What should be done?
 
 1 - Model the UML diagrams
-2 - Implement the loading functionality
+2 - Implement the loading functionality - Done
