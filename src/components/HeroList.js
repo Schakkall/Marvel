@@ -23,6 +23,7 @@ class HeroList extends Component {
             content: undefined,
 
             offset: 0,
+            isLoadind: true,
 
             stack: [],
             put_item: (item) => (this.state.stack.push(item)),
@@ -46,10 +47,10 @@ class HeroList extends Component {
     }
 
     
-    handleOnLoad(props) {
+    handleOnLoad() {
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
-        setTimeout(() => this.loadNewState(this.props), 3000);//OnPageLoad
-        this.forceUpdate();
+        setTimeout(() => this.loadNewState(this.props), 2000);//OnPageLoad
+        //this.forceUpdate();
     }
 
     loadNewState(props) {
@@ -57,6 +58,7 @@ class HeroList extends Component {
             props.data.data.data.results.forEach(function(element) {
                 this.state.stack.push(element);
             }, this);
+            this.state.isLoadind = false;
             this.forceUpdate();
         } else {
             console.log('Falha na requisição!')
@@ -64,13 +66,18 @@ class HeroList extends Component {
     }
 
     handleScroll() { 
-        if (window.pageYOffset + window.innerHeight === document.body.scrollHeight) {
-            //console.log('The page is scrolled down')
+        if ((window.pageYOffset + window.innerHeight === document.body.scrollHeight) && (!this.state.isLoadind)) {
+            console.log('The page is scrolled down')
             this.state.offset += 10;
+        
+            this.state.isLoadind = true;
+            this.forceUpdate();
+            
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             setTimeout(() => this.loadNewState(this.props), 3000);
+            
             //Increment the height of the page
-            this.forceUpdate();
+            //this.forceUpdate();
         }
     }
     
@@ -85,7 +92,7 @@ class HeroList extends Component {
 
     render() {
         let index = 1;
-        if (this.props.data.data === undefined) {
+        if (this.state.isLoadind) {
             return (<Loading></Loading>)
         } else {            
             return (

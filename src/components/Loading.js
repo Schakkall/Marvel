@@ -13,6 +13,7 @@ import Icon from './loader.gif';
 export default class Loading extends Component {
     //Just show a loading icon during a certain amount of time
     render() {
+        window.scrollTo(0, 0);
         return (
         <div id='loader'>
             <div className='container'>
