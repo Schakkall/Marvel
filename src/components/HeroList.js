@@ -48,6 +48,7 @@ class HeroList extends Component {
 
     
     handleOnLoad() {
+        //Request until the result be valid
         this.props.requestApiData(endpoints.ALL_HEROES_URI(10, 0));
         setTimeout(() => this.loadNewState(this.props), 2000);//OnPageLoad
         //this.forceUpdate();
@@ -60,6 +61,7 @@ class HeroList extends Component {
             }, this);
             this.state.isLoadind = false;
             this.forceUpdate();
+            //If you know how much cards are loaded, you can repos the scroll to right place using "window.scrollTo
         } else {
             console.log('Falha na requisição!')
         }
@@ -73,6 +75,7 @@ class HeroList extends Component {
             this.state.isLoadind = true;
             this.forceUpdate();
             
+            //Request until the result be valid
             this.props.requestApiData(endpoints.ALL_HEROES_URI(10, this.state.offset));
             setTimeout(() => this.loadNewState(this.props), 3000);
             
